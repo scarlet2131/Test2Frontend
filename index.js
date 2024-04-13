@@ -89,3 +89,21 @@ function generateTable() {
   // Appending the button container below the table container
   document.body.appendChild(buttonContainer);
 }
+
+//Addig column to the table 
+function addColumn() {
+  let table = document.getElementById('dynamicTable');
+  if (table) {
+      for (let i = 0; i < table.rows.length; i++) {
+          let newCell = table.rows[i].insertCell(-1);
+          newCell.innerHTML = `Cell ${i},${table.rows[i].cells.length - 1}`;
+          //Added styles to the new columns added giving new color to the button
+          newCell.style.border = '1px solid grey';
+          newCell.style.padding = '15px';
+          newCell.style.color = 'white';
+          newCell.style.backgroundColor = 'purple'; 
+          newCell.style.textAlign = 'center'; 
+
+      }
+  }
+}
