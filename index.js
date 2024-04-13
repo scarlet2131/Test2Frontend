@@ -96,12 +96,30 @@ function addColumn() {
   if (table) {
       for (let i = 0; i < table.rows.length; i++) {
           let newCell = table.rows[i].insertCell(-1);
-          newCell.innerHTML = `Cell ${i},${table.rows[i].cells.length - 1}`;
+          newCell.innerHTML = `Cell (${i},${table.rows[i].cells.length - 1})`;
           //Added styles to the new columns added giving new color to the button
           newCell.style.border = '1px solid grey';
           newCell.style.padding = '15px';
           newCell.style.color = 'white';
           newCell.style.backgroundColor = 'purple'; 
+          newCell.style.textAlign = 'center'; 
+
+      }
+  }
+}
+//Addig row to the table 
+function addRow() {
+  let table = document.getElementById('dynamicTable');
+  if (table) {
+      let newRow = table.insertRow(-1);
+      for (let j = 0; j < table.rows[0].cells.length; j++) {
+          let newCell = newRow.insertCell();
+          newCell.innerHTML = `Cell (${table.rows.length - 1},${j})`;
+          //Added different color for new rows 
+          newCell.style.border = '1px solid grey';
+          newCell.style.padding = '15px';
+          newCell.style.color = 'white'; 
+          newCell.style.backgroundColor = 'orange'; 
           newCell.style.textAlign = 'center'; 
 
       }
